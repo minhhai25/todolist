@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>To Do List</h1>
+    <Add> </Add>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import HelloWorld from './components/HelloWorld.vue'
+import Add from "./components/cardAdd.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Add,
+  },
+};
 </script>
 
 <style>
@@ -24,5 +24,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+html {
+  background: linear-gradient(
+    180deg,
+    #2ebf91 0%,
+    rgba(131, 96, 195, 0.31) 100%
+  );
+  height: 100%;
 }
 </style>
