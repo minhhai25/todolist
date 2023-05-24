@@ -13,18 +13,23 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
-    tasks: Array,
+    // tasks: Array,
   },
   data() {
-    return {};
+    return {
+      input: "",
+    };
   },
+  computed: mapState({
+    tasks: (state) => state.tasks,
+  }),
   methods: {
     deleteTask(index) {
+      this.$store.dispatch("removeTask", index);
       console.log(index);
-      // eslint-disable-next-line vue/no-mutating-props
-      this.tasks.splice(index, 1);
     },
   },
 };

@@ -2,16 +2,18 @@
   <div id="app">
     <h1>To Do List</h1>
     <Add> </Add>
+    <Task></Task>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Add from "./components/cardAdd.vue";
+import Task from "./components/cardTask.vue";
 export default {
-  name: "App",
   components: {
     Add,
+    Task,
   },
 };
 </script>

@@ -10,35 +10,43 @@
         </button>
       </form>
     </div>
-    <card-task :tasks="tasks"></card-task>
+    <!-- <card-task :tasks="tasks"></card-task> -->
   </div>
 </template>
 
 <script>
-import cardTask from "./cardTask.vue";
-
+// import { mapState } from "vuex";
 export default {
   name: "task-item",
-  components: {
-    cardTask,
-  },
+  components: {},
+  //computed nhan value tu store ,task() cos value - data.tasks trong store
+  // computed: mapState({
+  //   tasks: (state) => state.tasks,
+  // }),
   data() {
     return {
       input: "",
-      tasks: [],
+      // tasks: [],
       nextTodoId: 0,
     };
   },
   methods: {
     addNewTask: function () {
-      this.tasks.push({
-        id: this.nextTodoId++,
-        title: this.input,
-      });
-      this.input = "";
-      // console.log("oke");
+      if (this.input.trim(" ") == "") {
+        console.log("error");
+      } else {
+        // this.tasks.push({
+        //   id: this.nextTodoId++,
+        //   title: this.input,
+        // });
+        this.$store.dispatch("setTask", {
+          id: this.nextTodoId++,
+          title: this.input,
+        });
+        // this.nextTodoId++;
+        this.input = "";
+      }
     },
-    // deleteTask: function () {},
   },
 };
 </script>
@@ -72,6 +80,7 @@ input#new-todo {
   width: 300px;
   height: 60px;
   margin-left: 10px;
+  text-align: center;
 }
 button {
   background: rgba(76, 207, 169, 0.92);
