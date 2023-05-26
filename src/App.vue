@@ -37,5 +37,6 @@ html {
     rgba(131, 96, 195, 0.31) 100%
   );
   height: 100%;
+  text-align: center;
 }
 </style>

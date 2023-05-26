@@ -1,17 +1,19 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <form @submit.prevent="login" id="login">
-    <div>
-      <label for=" username">Username:</label>
-      <input type=" username" id=" username" v-model="username" />
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" />
-    </div>
-    <button type="submit">Login</button>
-    <p type="errorMessage">{errorMessage}</p>
-  </form>
+  <div id="home">
+    <form @submit.prevent="login" id="login">
+      <div>
+        <label for=" username">Username:</label>
+        <input type=" username" id=" username" v-model="username" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password" />
+      </div>
+      <button type="submit">Login</button>
+      <!-- <p type="errorMessage">{errorMessage}</p> -->
+    </form>
+  </div>
 </template>
 
 <script>
@@ -60,5 +62,16 @@ export default {
   box-sizing: border-box;
   border: 1px solid;
   border-radius: 5px;
+  width: 500px;
+  background: white;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#home {
+  display: flex;
+  justify-content: center;
 }
 </style>
