@@ -75,7 +75,7 @@ span {
   border-radius: 40px;
   position: relative;
   top: 20px;
-  text-align: start;
+  /* text-align: start; */
 }
 li > button {
   vertical-align: middle;
