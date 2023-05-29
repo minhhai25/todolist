@@ -11,7 +11,7 @@
         <input type="password" id="password" v-model="password" />
       </div>
       <button type="submit">Login</button>
-      <!-- <p type="errorMessage">{errorMessage}</p> -->
+      <p type="errorMessage">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
     return {
       username: "",
       password: "",
+      errorMessage: "",
     };
   },
   methods: {
@@ -32,27 +33,9 @@ export default {
         console.log("dang nhap thanh cong");
       } else {
         console.log("dang nhap sai");
+        this.errorMessage = "Mật khẩu hoặc tên đăng nhập sai .Hãy nhập lại!";
       }
     },
-    // login() {
-    //   axios
-    //     .post("/login", {
-    //       email: this.email,
-    //       password: this.password,
-    //     })
-    //     .then((response) => {
-    //       if (response.data.success) {
-    //         window.location.href = "/dashboard";
-    //       } else {
-    //         //đăng nhập thất bại xử lý thông báo lỗi
-    //         console.log("dng nhap lai");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       //xử lí lỗi
-    //       console.log(error);
-    //     });
-    // },
   },
 };
 </script>
@@ -64,7 +47,7 @@ export default {
   border-radius: 5px;
   width: 500px;
   background: white;
-  height: 155px;
+  height: 200px;
   display: flex;
   align-items: center;
   flex-direction: column;
