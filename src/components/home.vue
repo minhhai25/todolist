@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="submit" @click="logout()" id="logout">Logout</button>
+    <button type="submit" @click="Logout()" id="logout">Logout</button>
     <add-comp></add-comp>
     <task-comp></task-comp>
   </div>
@@ -9,6 +9,7 @@
 <script>
 import cardAddVue from "./cardAdd.vue";
 import cardTaskVue from "./cardTask.vue";
+// import authMiddleware from "../authMiddleware";
 export default {
   name: "home-page",
   components: {
@@ -16,8 +17,9 @@ export default {
     "task-comp": cardTaskVue,
   },
   methods: {
-    logout() {
-      this.$router.push({ path: "/" });
+    Logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/");
     },
   },
 };

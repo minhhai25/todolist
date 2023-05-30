@@ -5,10 +5,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     tasks: [],
+    isLogin: false,
   },
   getters: {
     getTaskItem(state) {
       return state.tasks;
+    },
+    getIsLogin(state) {
+      return state.isLogin;
     },
   },
   mutations: {
@@ -19,6 +23,9 @@ const store = new Vuex.Store({
     REMOVE_TASK(state, removedTask) {
       state.tasks.splice(removedTask, 1);
     },
+    setLoginStatus(state, status) {
+      state.isLogin = status;
+    },
   },
   actions: {
     setTask(context, newTask) {
@@ -26,6 +33,12 @@ const store = new Vuex.Store({
     },
     removeTask(context, removedTask) {
       context.commit("REMOVE_TASK", removedTask);
+    },
+    login({ commit }) {
+      commit("setLoginStatus", true);
+    },
+    logout({ commit }) {
+      commit("setLoginStatus", false);
     },
   },
 });

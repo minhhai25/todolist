@@ -35,15 +35,10 @@ export default {
       if (this.input.trim(" ") == "") {
         console.log("error");
       } else {
-        // this.tasks.push({
-        //   id: this.nextTodoId++,
-        //   title: this.input,
-        // });
         this.$store.dispatch("setTask", {
           id: this.nextTodoId++,
           title: this.input,
         });
-        // this.nextTodoId++;
         this.input = "";
       }
     },

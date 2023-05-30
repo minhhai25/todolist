@@ -1,23 +1,13 @@
 <template>
   <div id="app">
-    <!-- <login></login> -->
-    <!-- <h1>To Do List</h1>
-    <Add> </Add>
-    <Task></Task> -->
     <router-link to="/"></router-link>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import Add from "./components/cardAdd.vue";
-// import Task from "./components/cardTask.vue";
-// import Login from "./components/login.vue";
 export default {
-  components: {
-    // Login,
-  },
+  components: {},
 };
 </script>
 
