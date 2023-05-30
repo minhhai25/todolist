@@ -1,39 +1,41 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div id="home">
-    <form @submit.prevent="login" id="login">
+    <form @submit.prevent="Login" id="login">
       <div>
-        <label for=" username">Username:</label>
-        <input type=" username" id=" username" v-model="username" />
+        <label for="username">Username:</label>
+        <input type="text" id="username" v-model="username" />
       </div>
       <div>
         <label for="password">Password:</label>
         <input type="password" id="password" v-model="password" />
       </div>
       <button type="submit">Login</button>
-      <p type="errorMessage">{{ errorMessage }}</p>
+      <!-- <p class="errorMessage">{{ errorMessage }}</p> -->
     </form>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
+// import authMiddleware from "../authMiddleware";
+import router from "../Router/index";
 export default {
   data() {
     return {
       username: "",
       password: "",
-      errorMessage: "",
+      // errorMessage: "",
     };
   },
   methods: {
-    login() {
-      if (this.password == "123456" && this.username == "admin") {
-        this.$router.push({ path: "/todolist" });
-        console.log("dang nhap thanh cong");
+    Login() {
+      if (this.username === "admin" && this.password === "123456") {
+        this.$store.dispatch("login");
+
+        console.log("oke");
+        router.push("/todolist");
       } else {
-        console.log("dang nhap sai");
-        this.errorMessage = "Mật khẩu hoặc tên đăng nhập sai .Hãy nhập lại!";
+        alert("đăng nhập thất bại ");
       }
     },
   },
@@ -53,6 +55,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
 }
+
 #home {
   display: flex;
   justify-content: center;
