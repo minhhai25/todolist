@@ -47,6 +47,7 @@ export default {
 </script>
 
 <style>
+
 .task {
   margin: auto;
   background: linear-gradient(

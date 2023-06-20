@@ -35,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 li {
   box-sizing: border-box;
   width: 550px;
@@ -83,5 +83,6 @@ li > button {
   top: 37px;
   background: rgba(244, 121, 31, 0.92);
   backdrop-filter: blur(20px);
+  border-radius: 50%;
 }
 </style>

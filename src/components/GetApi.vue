@@ -1,30 +1,39 @@
 <template>
   <div>
-    <button class="api" @click="getEntries"></button>
+    <!-- <ul>
+      <li v-for="task in tasks" :key="task.id">{{ task.title }}</li>
+    </ul> -->
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import store from "../store/store";
-//import { EventBus } from "../main";
+import { mapActions } from "vuex";
+
 export default {
+  computed: {
+    tasks() {
+      return this.$store.state.tasks;
+    },
+  },
+  mounted() {
+    this.getEntries();
+  },
   methods: {
+    ...mapActions(["setTask"]),
     getEntries() {
       axios
         .get("https://jsonplaceholder.typicode.com/todos")
-        .then(function (response) {
-          console.log(response.data.length);
-          var arrayAPI = response.data;
-          for (var i = 0; i < response.data.length; i++) {
-            store.dispatch("setTask", {
-              title: arrayAPI[i].title,
-              id: arrayAPI[i].id,
-            });
-          }
-          store.dispatch("setCurrentId", response.data.length);
+        .then((response) => {
+          const tasks = response.data.map((task) => ({
+            id: task.id,
+            title: task.title,
+          }));
+          tasks.forEach((task) => {
+            this.setTask(task);
+          });
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
     },

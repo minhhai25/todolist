@@ -1,38 +1,28 @@
 <template>
   <div>
-    <button type="submit" @click="Logout()" id="logout">Logout</button>
+    <header-comp></header-comp>
+
     <add-comp></add-comp>
     <task-comp></task-comp>
+    <get-api></get-api>
   </div>
 </template>
 
 <script>
 import cardAddVue from "./cardAdd.vue";
 import cardTaskVue from "./cardTask.vue";
-// import authMiddleware from "../authMiddleware";
+import Header from "./Header.vue";
+
+import GetApi from "./GetApi.vue";
 export default {
   name: "home-page",
   components: {
+    "header-comp": Header,
     "add-comp": cardAddVue,
     "task-comp": cardTaskVue,
-  },
-  methods: {
-    Logout() {
-      this.$store.dispatch("logout");
-      this.$router.push("/");
-    },
+    GetApi,
   },
 };
 </script>
 
-<style>
-button#logout {
-  position: absolute;
-  right: 40px;
-  top: 19px;
-  border: none;
-  border-radius: 15px;
-  margin: 0;
-  padding: 0;
-}
-</style>
+<style></style>

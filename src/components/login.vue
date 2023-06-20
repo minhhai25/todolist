@@ -2,15 +2,24 @@
 <template>
   <div id="home">
     <form @submit.prevent="Login" id="login">
-      <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" v-model="username" />
+      <p>Log In</p>
+      <div class="ip_login">
+        <!-- <label for="username">Username:</label> -->
+        <input
+          type="text"
+          placeholder="username"
+          id="username"
+          v-model="username"
+        />
+        <!-- <label for="password">Password:</label> -->
+        <input
+          type="password"
+          id="password"
+          v-model="password"
+          placeholder="password"
+        />
       </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" />
-      </div>
-      <button type="submit">Login</button>
+      <button type="submit" id="login">Login</button>
       <!-- <p class="errorMessage">{{ errorMessage }}</p> -->
     </form>
   </div>
@@ -19,6 +28,7 @@
 <script>
 // import authMiddleware from "../authMiddleware";
 import router from "../Router/index";
+import "../assets/login.css";
 export default {
   data() {
     return {
@@ -29,9 +39,8 @@ export default {
   },
   methods: {
     Login() {
-      if (this.username === "admin" && this.password === "123456") {
+      if (this.username === "admin" && this.password === "111") {
         this.$store.dispatch("login");
-
         console.log("oke");
         router.push("/todolist");
       } else {
@@ -42,22 +51,4 @@ export default {
 };
 </script>
 
-<style>
-#login {
-  box-sizing: border-box;
-  border: 1px solid;
-  border-radius: 5px;
-  width: 500px;
-  background: white;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-#home {
-  display: flex;
-  justify-content: center;
-}
-</style>
+<style></style>

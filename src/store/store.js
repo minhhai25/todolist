@@ -6,6 +6,7 @@ const store = new Vuex.Store({
   state: {
     tasks: [],
     isLogin: false,
+    currentId: null,
   },
   getters: {
     getTaskItem(state) {
@@ -26,6 +27,9 @@ const store = new Vuex.Store({
     setLoginStatus(state, status) {
       state.isLogin = status;
     },
+    // SET_CURRENT_ID(state, currentId) {
+    //   state.currentId = currentId;
+    // },
   },
   actions: {
     setTask(context, newTask) {
@@ -40,6 +44,9 @@ const store = new Vuex.Store({
     logout({ commit }) {
       commit("setLoginStatus", false);
     },
+    // setCurrentId(context, currentId) {
+    //   context.commit("SET_CURRENT_ID", currentId);
+    // },
   },
 });
 

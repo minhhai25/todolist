@@ -2,12 +2,18 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeComponent from "../components/home.vue";
 import LoginComponent from "../components/login.vue";
+import Profile from "../components/user/Profile.vue";
+// import authMiddleware from "../authMiddleware";
 import store from "../store/store";
-
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: [
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile,
+    },
     {
       path: "/",
       name: "login",
