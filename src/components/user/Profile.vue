@@ -5,14 +5,10 @@
     <div class="container">
       <div class="left-col">
         <img src="./anh1.jpg" alt="" />
-        <h3>ADMIN</h3>
+        <h3>{{ $store.state.username }}</h3>
       </div>
 
       <div class="right-col">
-        <!-- <div class="right-item">
-          <label for="name">Tên người dùng:</label>
-          <h3>Nguyễn TMH</h3>
-        </div> -->
         <div class="right-item">
           <label for="email">Email:</label>
           <h3>ntmah@gmil.com</h3>

@@ -30,13 +30,13 @@
 export default {
   data() {
     return {
-      username: "super admin",
+    
     };
   },
   computed: {
     setAvatar() {
-      console.log(this.username);
-      var arr = this.username.split(" ");
+      console.log(this.$store.state.username);
+      var arr = this.$store.state.username.split(" ");
       var firstLetter = arr.map(function (string) {
         return string.charAt(0).toUpperCase();
       });

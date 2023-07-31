@@ -2,11 +2,13 @@ import Vue from "vue";
 import Vuex from "vuex";
 // import{ store} from './Store/store.js';
 Vue.use(Vuex);
+// localStorage.setItem("username", this.$store.state.username);
 const store = new Vuex.Store({
   state: {
     tasks: [],
     isLogin: false,
     currentId: null,
+    username: localStorage.getItem("username") || "",
   },
   getters: {
     getTaskItem(state) {
@@ -27,9 +29,9 @@ const store = new Vuex.Store({
     setLoginStatus(state, status) {
       state.isLogin = status;
     },
-    // SET_CURRENT_ID(state, currentId) {
-    //   state.currentId = currentId;
-    // },
+    SET_USERNAME(state, username) {
+      state.username = username;
+    },
   },
   actions: {
     setTask(context, newTask) {
@@ -44,9 +46,10 @@ const store = new Vuex.Store({
     logout({ commit }) {
       commit("setLoginStatus", false);
     },
-    // setCurrentId(context, currentId) {
-    //   context.commit("SET_CURRENT_ID", currentId);
-    // },
+
+    setusername({ commit }, username) {
+      commit("SET_USERNAME", username);
+    },
   },
 });
 

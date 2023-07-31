@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <ul>
-      <li v-for="task in tasks" :key="task.id">{{ task.title }}</li>
-    </ul> -->
+    <button @click="getEntries">GetApi</button>
   </div>
 </template>
 
@@ -16,26 +14,27 @@ export default {
       return this.$store.state.tasks;
     },
   },
-  mounted() {
-    this.getEntries();
-  },
+  // mounted() {
+  //   this.getEntries();
+  // },
   methods: {
     ...mapActions(["setTask"]),
-    getEntries() {
-      axios
-        .get("https://jsonplaceholder.typicode.com/todos")
-        .then((response) => {
-          const tasks = response.data.map((task) => ({
-            id: task.id,
-            title: task.title,
-          }));
-          tasks.forEach((task) => {
-            this.setTask(task);
-          });
-        })
-        .catch((error) => {
-          console.log(error);
+    async getEntries() {
+      try {
+        const response = await axios.get( "https://jsonplaceholder.typicode.com/todos"
+        );
+
+        const tasks = response.data.map((task) => ({
+          id: task.id,
+          title: task.title,
+        }));
+        tasks.forEach((task) => {
+          this.setTask(task);
         });
+
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

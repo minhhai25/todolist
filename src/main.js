@@ -8,6 +8,7 @@ import BootstrapVue from "bootstrap-vue";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/js/bootstrap.js";
+// import i18n from "./assets/image"
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
@@ -17,19 +18,3 @@ new Vue({
   store,
   render: (h) => h(App),
 }).$mount("#app");
-// import Store from "vuex";
-// const store = Store({
-//   state() {
-//     return {
-//       count: 0,
-//     };
-//   },
-//   mutations: {
-//     increment(state) {
-//       state.count++;
-//     },
-//   },
-// });
-// App.use(store);
-
-// const store = createStore();

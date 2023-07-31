@@ -10,26 +10,21 @@
         </button>
       </form>
     </div>
-    <!-- <card-task :tasks="tasks"></card-task> -->
   </div>
 </template>
 
 <script>
-// import { mapState } from "vuex";
 export default {
   name: "task-item",
   components: {},
-  //computed nhan value tu store ,task() cos value - data.tasks trong store
-  // computed: mapState({
-  //   tasks: (state) => state.tasks,
-  // }),
+
   data() {
     return {
-      input: "",
-      // tasks: [],
+      input: null,
       nextTodoId: 0,
     };
   },
+
   methods: {
     addNewTask: function () {
       if (this.input.trim(" ") == "") {
@@ -47,7 +42,6 @@ export default {
 </script>
 
 <style>
-
 .task {
   margin: auto;
   background: linear-gradient(

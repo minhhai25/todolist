@@ -23,6 +23,12 @@ export default {
       input: "",
     };
   },
+  beforeDestroy() {
+    console.log("beforeDestroy");
+  },
+  destroyed() {
+    console.log("destroyed");
+  },
   computed: mapState({
     tasks: (state) => state.tasks,
   }),
